@@ -4,11 +4,13 @@ const cors = require('cors');
 const path = require('path');
 const db = require('./config/connection');
 const app = express();
+const routes = require('./routes');
 
-// bodyparser and cors middlewares
+// middlewares
 app.use(express.urlencoded({ extended: true, limit: "20mb" }));
 app.use(express.json({ extended: true, limit: "20mb" }));
 app.use(cors());
+app.use(routes);
 
 const PORT = process.env.PORT || 5000;
 
@@ -27,3 +29,5 @@ db.once('open', () => {
         console.log(`🌍 Now listening on localhost:${PORT}`)
     });
 });
+
+// uncomment app.get to deploy

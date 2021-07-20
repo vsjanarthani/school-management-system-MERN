@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 mongoose.connect(
-  process.env.MONGODB_ENDPOINT || 'mongodb://localhost/databaseName',
+  process.env.MONGODB_ENDPOINT || 'mongodb://localhost/smsDb',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
